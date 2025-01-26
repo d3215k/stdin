@@ -14,20 +14,20 @@ class CetakController extends Controller
     public function __invoke(Instruction $instruction, SettingSekolah $setting)
     {
         $data = $instruction->tujuan;
-        $tujuan = collect($data)->map(function ($item) {
+        $tujuanItems = collect($data)->map(function ($item) {
                 return [
                     'nama_tujuan' => $item['nama_tujuan'],
                     'kode_rekening' => $item['kode_rekening'],
                 ];
             })
+            // ->sortBy('kode_rekening', SORT_NATURAL | SORT_FLAG_CASE)
             ->unique()
-            ->sortBy('kode_rekening')
             ->values();
 
         return view('cetak', [
             'instruction' => $instruction,
             'setting' => $setting,
-            'tujuan' => $tujuan,
+            'tujuanItems' => $tujuanItems,
         ]);
     }
 }

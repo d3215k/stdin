@@ -92,7 +92,7 @@
                   <div class="w-[300px]">Tujuan Penggunaan Dana</div>
                   <div>:</div>
                   <div class="flex-1">
-                    @foreach ($tujuan as $item)
+                    @foreach ($tujuanItems as $item)
                         <div class="flex flex-row gap-1">
                             <div class="w-[250px]">{{ $item['nama_tujuan'] }}</div>
                             <div>{{ $item['kode_rekening'] }}</div>
