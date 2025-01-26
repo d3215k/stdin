@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('instructions', function (Blueprint $table) {
+            $table->id();
+            $table->string('tahun');
+            $table->string('nomor');
+            $table->integer('lampiran');
+            $table->string('perihal');
+            $table->unsignedInteger('jumlah');
+            $table->date('tanggal');
+            $table->foreignId('bank_sumber_id')->constrained('bank_sumbers');
+            $table->foreignId('bank_tujuan_id')->constrained('bank_tujuans');
+            $table->json('tujuan');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('instructions');
+    }
+};
