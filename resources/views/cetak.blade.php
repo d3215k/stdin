@@ -200,7 +200,7 @@
                         <td class="border border-black p-2 text-center">{{ $record['no_rekening'] }}</td>
                         <td class="border border-black p-2 text-center">{{ $record['kode_rekening'] }}</td>
                         <td class="border border-black p-2 text-center">{{ $record['atas_nama'] }}</td>
-                        <td class="border border-black p-2 text-center">{{ $record['jumlah_transfer'] }}</td>
+                        <td class="border border-black p-2 text-center">{{ \App\Support\FormatCurrency::idr($record['jumlah_transfer']) }}</td>
                         <td class="border border-black p-2 text-center">{{ $record['keterangan'] }}</td>
                     </tr>
                     @endforeach
