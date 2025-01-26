@@ -132,8 +132,8 @@
               <div>
                 <p>Dengan adanya <span class="italic">Standing Instruction</span> ini, maka:</p>
                 <ol class="list-decimal list-outside ml-12">
-                  <li>Bank dibebaskan dari segala akibat yang mungkin timbul dari pelaksanaan pemindahbukuan berdasarkan Standing Instruction ini;</li>
-                  <li>Kami meyakini atas kebenaran data dan informasi pada standing instruction ini.</li>
+                  <li>Bank dibebaskan dari segala akibat yang mungkin timbul dari pelaksanaan pemindahbukuan berdasarkan <span class="italic">Standing Instruction</span> ini;</li>
+                  <li>Kami meyakini atas kebenaran data dan informasi pada <span class="italic">Standing Instruction</span> ini.</li>
                 </ol>
               </div>
 
