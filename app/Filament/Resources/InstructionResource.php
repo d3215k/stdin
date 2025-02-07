@@ -102,19 +102,22 @@ class InstructionResource extends Resource
                             ,
                         Forms\Components\Select::make('penerima_id')
                             ->label('Penerima')
-                            ->searchable()
                             ->options(fn () => Penerima::pluck('nama', 'id'))
+                            ->searchable()
                             ->preload()
                             ->reactive()
                             ->afterStateUpdated(function ($state, Set $set) {
                                 $penerima = Penerima::find($state);
                                 if($penerima) {
                                     $set('atas_nama', $penerima->nama);
+                                    $set('bank', $penerima->bank);
                                     $set('no_rekening', $penerima->no_rekening);
                                 }
                             })
                             ->createOptionForm([
                                 Forms\Components\TextInput::make('nama')
+                                    ->required(),
+                                Forms\Components\TextInput::make('bank')
                                     ->required(),
                                 Forms\Components\TextInput::make('no_rekening')
                                     ->required(),
@@ -122,12 +125,15 @@ class InstructionResource extends Resource
                             ->createOptionUsing(function (array $data): int {
                                 return Penerima::create($data)->id;
                             })
-                            ->columnSpan(2),
+                            ->columnSpan(1),
                         Forms\Components\Hidden::make('atas_nama')
                             ->required()
                             ->dehydrated(),
+                        Forms\Components\TextInput::make('bank')
+                            ->required()
+                            ->dehydrated()
+                            ->columnSpan(1),
                         Forms\Components\TextInput::make('no_rekening')
-                            ->disabled()
                             ->required()
                             ->dehydrated()
                             ->columnSpan(1),

@@ -30,6 +30,9 @@ class PenerimaResource extends Resource
                 Forms\Components\TextInput::make('nama')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('bank')
+                    ->required()
+                    ->maxLength(255),
                 Forms\Components\TextInput::make('no_rekening')
                     ->required()
                     ->maxLength(255),
@@ -42,16 +45,10 @@ class PenerimaResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('nama')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('bank')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('no_rekening')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

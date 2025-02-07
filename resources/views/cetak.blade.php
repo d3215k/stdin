@@ -184,7 +184,7 @@
                     <tr>
                         <td class="border border-black p-1 text-center">No</td>
                         <td class="border border-black p-1 text-center">Tujuan Penggunaan Dana</td>
-                        <td class="border border-black p-1 text-center">No. Rekening</td>
+                        <td class="border border-black p-1 text-center">No. Rekening / Virtual Account</td>
                         <td class="border border-black p-1 text-center">Kode Rekening</td>
                         <td class="border border-black p-1 text-center">Atas Nama</td>
                         <td class="border border-black p-1 text-center">Jumlah Transfer</td>
@@ -197,7 +197,7 @@
                     <tr style="page-break-inside: avoid">
                         <td class="border border-black p-2 text-center">{{ $loop->iteration }}</td>
                         <td class="border border-black p-2 text-center">{{ $record['nama_tujuan'] }}</td>
-                        <td class="border border-black p-2 text-center">{{ $record['no_rekening'] }}</td>
+                        <td class="border border-black p-2 text-center">{{ $record['bank'] . ' ' . $record['no_rekening'] }}</td>
                         <td class="border border-black p-2 text-center">{{ $record['kode_rekening'] }}</td>
                         <td class="border border-black p-2 text-center">{{ $record['atas_nama'] }}</td>
                         <td class="border border-black p-2 text-center">{{ \App\Support\FormatCurrency::idr($record['jumlah_transfer']) }}</td>
