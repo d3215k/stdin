@@ -183,11 +183,12 @@
                 <thead>
                     <tr>
                         <td class="border border-black p-1 text-center">No</td>
-                        <td class="border border-black p-1 text-center">Tujuan Penggunaan Dana</td>
+                        <td class="border border-black p-1 text-center">Nama Bank</td>
                         <td class="border border-black p-1 text-center">No. Rekening / Virtual Account</td>
-                        <td class="border border-black p-1 text-center">Kode Rekening</td>
                         <td class="border border-black p-1 text-center">Atas Nama</td>
-                        <td class="border border-black p-1 text-center">Jumlah Transfer</td>
+                        <td class="border border-black p-1 text-center">Nominal</td>
+                        <td class="border border-black p-1 text-center">Kode Rekening</td>
+                        <td class="border border-black p-1 text-center">Tujuan Penggunaan Dana</td>
                         <td class="border border-black p-1 text-center">Keterangan</td>
                     </tr>
                 </thead>
@@ -196,14 +197,20 @@
                     @foreach ($instruction->tujuan as $record)
                     <tr style="page-break-inside: avoid">
                         <td class="border border-black p-2 text-center">{{ $loop->iteration }}</td>
-                        <td class="border border-black p-2 text-center">{{ $record['nama_tujuan'] }}</td>
-                        <td class="border border-black p-2 text-center">{{ $record['bank'] . ' ' . $record['no_rekening'] }}</td>
-                        <td class="border border-black p-2 text-center">{{ $record['kode_rekening'] }}</td>
+                        <td class="border border-black p-2 text-center">{{ $record['bank'] }}</td>
+                        <td class="border border-black p-2 text-center">{{ $record['no_rekening'] }}</td>
                         <td class="border border-black p-2 text-center">{{ $record['atas_nama'] }}</td>
                         <td class="border border-black p-2 text-center">{{ \App\Support\FormatCurrency::idr($record['jumlah_transfer']) }}</td>
-                        <td class="border border-black p-2 text-center">{{ $record['keterangan'] }}</td>
+                        <td class="border border-black p-2 text-center">{{ $record['kode_rekening'] }}</td>
+                        <td class="border border-black p-2 text-center">{{ $record['nama_tujuan'] }}</td>
+                        <td class="border border-black p-2 text-left prose">{!! $record['keterangan'] !!}</td>
                     </tr>
                     @endforeach
+                    <tr>
+                        <td colspan="4" class="border border-black p-2 text-center">Jumlah Dana</td>
+                        <td class="border border-black p-2 text-center">{{ \App\Support\FormatCurrency::idr($instruction->jumlah) }}</td>
+                        <td colspan="3" class="border border-black p-2 text-left">Terbilang : <br/><span class="capitalize italic">{{ Number::spell($instruction->jumlah, locale: 'id') }} rupiah</span></td>
+                    </tr>
                 </tbody>
 
               </table>

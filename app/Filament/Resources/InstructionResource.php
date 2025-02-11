@@ -141,7 +141,7 @@ class InstructionResource extends Resource
                             ->required()
                             ->numeric()
                             ->columnSpan(1),
-                        Forms\Components\Textarea::make('keterangan')
+                        Forms\Components\RichEditor::make('keterangan')
                             ->required()
                             ->columnSpanFull(),
                     ])->columnSpanFull()
