@@ -155,6 +155,9 @@ class InstructionResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(function (Builder $query) {
+                $query->latest('tanggal');
+            })
             ->columns([
                 Tables\Columns\TextColumn::make('nomor')
                     ->searchable(),
